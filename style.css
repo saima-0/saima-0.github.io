@@ -82,4 +82,39 @@ body {
   a:hover {
     text-decoration: underline;
   }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  
+  .toggle-btn {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  
+  .toggle-btn:hover {
+    background: #f7f7f7;
+  }
+  
+  /* Hidden state */
+  .section-content.hidden {
+    display: none;
+  }
+  
+  /* Dark mode button style */
+  body.dark-mode .toggle-btn {
+    background: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  
+  body.dark-mode .toggle-btn:hover {
+    background: #333;
+  }
   
