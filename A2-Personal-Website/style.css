@@ -1,0 +1,85 @@
+
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #fff6e9;   /* very light orange */
+    color: #222;
+    line-height: 1.6;
+  }
+  
+  /* Center content */
+  .container {
+    width: 85%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  /* ---------- HEADER ---------- */
+  
+  header {
+    margin-bottom: 40px;
+  }
+  
+  /* Main name */
+  h1 {
+    font-size: 42px;
+    color: #000;   /* black */
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  /* Small intro under name */
+  header p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  /* ---------- SECTION HEADINGS ---------- */
+  
+  h2 {
+    font-size: 24px;
+    color: #444;   /* softer dark grey */
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #f3d4b2;
+    padding-bottom: 5px;
+  }
+  
+  /* ---------- CARDS ---------- */
+  
+  .card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  }
+  
+  /* ---------- TEXT ---------- */
+  
+  p {
+    font-size: 15px;
+  }
+  
+  ul {
+    padding-left: 18px;
+  }
+  
+  li {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  
+  /* ---------- LINKS ---------- */
+  
+  a {
+    color: #d97706;   /* soft orange accent */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
