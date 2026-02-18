@@ -1,52 +1,376 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Video Game Sales Visualizations</title>
+  <meta charset="utf-8" />
+  <title>IAT355 A3 – Vega-Lite</title>
 
-  <!-- Vega Libraries -->
+  <!-- Vega libraries -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 35px;
-    }
-    h2 {
-      margin-top: 50px;
-    }
+    body { font-family: Arial, sans-serif; margin: 30px; line-height: 1.5; }
+    .section { max-width: 950px; }
+    .vis { margin: 10px 0 36px; }
+    h2 { margin-top: 34px; }
+    .prompt { margin: 6px 0 10px; color: #333; }
+    hr { margin: 28px 0; }
   </style>
 </head>
 
 <body>
+  <div class="section">
+    <h1>IAT355 Assignment 3 — Vega-Lite</h1>
 
-  <h1>Video Game Sales Data Analysis</h1>
+    
+    <!-- PART 1 -->
+    
+    <h2>Part 1 — Data Types and Key Statistics</h2>
 
-  <h2>Visualization 1</h2>
-  <div id="vis1"></div>
+    <h3>Variables and Data Types</h3>
+    <p><b>Name</b> – Categorical (nominal)</p>
+    <p><b>Platform</b> – Categorical (nominal)</p>
+    <p><b>Year</b> – Quantitative (discrete)</p>
+    <p><b>Genre</b> – Categorical (nominal)</p>
+    <p><b>Publisher</b> – Categorical (nominal)</p>
+    <p><b>NA_Sales</b> – Quantitative (continuous, millions)</p>
+    <p><b>EU_Sales</b> – Quantitative (continuous, millions)</p>
+    <p><b>JP_Sales</b> – Quantitative (continuous, millions)</p>
+    <p><b>Other_Sales</b> – Quantitative (continuous, millions)</p>
+    <p><b>Global_Sales</b> – Quantitative (continuous, millions)</p>
 
-  <h2>Visualization 2</h2>
-  <div id="vis2"></div>
+    <h3>Key Statistics (Global_Sales)</h3>
+    <div id="stats" class="vis"></div>
 
-  <h2>Visualization 3</h2>
-  <div id="vis3"></div>
+    <h3>Most Frequent Genres (Top 10 by count)</h3>
+    <div id="genres" class="vis"></div>
 
-  <h2>Visualization 4</h2>
-  <div id="vis4"></div>
+    <h3>Observation (plain English)</h3>
+    <p>
+      Most games sell small amounts, and a few very popular games sell extremely high amounts.
+      That is why the mean global sales is higher than the median.
+      The genre “Action” appears the most often in this dataset, so it is the most common genre.
+    </p>
+
+    <hr />
+
+    
+    <!-- PART 2 -->
+    
+    <h2>Part 2 — Visual Explorations</h2>
+
+    <!-- Visualization 1 -->
+    <h3>Visualization 1 — Global Sales by Genre and Platform</h3>
+
+    <p class="prompt"><b>1A:</b> Which genres generate the highest total global sales across the top 10 platforms?</p>
+    <div id="vis1a" class="vis"></div>
+
+    <p class="prompt"><b>1B:</b> For each genre, which platforms contribute the most to its global sales?</p>
+    <div id="vis1b" class="vis"></div>
+
+    <!-- Visualization 2 -->
+    <h3>Visualization 2 — Sales Over Time by Platform and Genre</h3>
+
+    <p class="prompt"><b>2A:</b> How have total global sales changed over time for the top 5 genres?</p>
+    <div id="vis2a" class="vis"></div>
+
+    <p class="prompt"><b>2B:</b> How have total global sales changed over time for the top 5 platforms?</p>
+    <div id="vis2b" class="vis"></div>
+
+    <!-- Visualization 3 -->
+    <h3>Visualization 3 — Regional Sales vs Platform</h3>
+
+    <p class="prompt"><b>3A:</b> How do regional sales differ across the top 10 platforms?</p>
+    <div id="vis3a" class="vis"></div>
+
+    <p class="prompt"><b>3B:</b> For each platform, what is the regional share of sales?</p>
+    <div id="vis3b" class="vis"></div>
+
+    <!-- Visualization 4 -->
+    <h3>Visualization 4 — Visual Story (Genre Focus)</h3>
+
+    <p class="prompt"><b>4A:</b> How has genre popularity (global sales) changed over time for the top 6 genres?</p>
+    <div id="vis4a" class="vis"></div>
+
+    <p class="prompt"><b>4B:</b> Which genres are “Japan-heavy” (higher JP share of global sales)?</p>
+    <div id="vis4b" class="vis"></div>
+  </div>
 
   <script>
-    const spec1 = {};
-    const spec2 = {};
-    const spec3 = {};
-    const spec4 = {};
+    
+    const dataUrl = "videogames_wide.csv";
 
-    vegaEmbed("#vis1", spec1);
-    vegaEmbed("#vis2", spec2);
-    vegaEmbed("#vis3", spec3);
-    vegaEmbed("#vis4", spec4);
+   
+    const statsSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        {
+          "aggregate": [
+            { "op": "mean", "field": "Global_Sales", "as": "Mean" },
+            { "op": "median", "field": "Global_Sales", "as": "Median" },
+            { "op": "min", "field": "Global_Sales", "as": "Min" },
+            { "op": "max", "field": "Global_Sales", "as": "Max" },
+            { "op": "stdev", "field": "Global_Sales", "as": "StdDev" }
+          ]
+        },
+        { "calculate": "datum.Max - datum.Min", "as": "Range" },
+        { "fold": ["Mean", "Median", "Range", "StdDev"], "as": ["Stat", "Value"] }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": { "field": "Stat", "type": "nominal", "title": "" },
+        "y": { "field": "Value", "type": "quantitative", "title": "Sales (millions)" },
+        "tooltip": [
+          { "field": "Stat", "type": "nominal" },
+          { "field": "Value", "type": "quantitative", "format": ".2f" }
+        ]
+      }
+    };
+
+    const genreSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "aggregate": [{ "op": "count", "as": "Count" }], "groupby": ["Genre"] },
+        { "window": [{ "op": "rank", "as": "r" }], "sort": [{ "field": "Count", "order": "descending" }] },
+        { "filter": "datum.r <= 10" }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": { "field": "Genre", "type": "nominal", "sort": "-y", "title": "" },
+        "y": { "field": "Count", "type": "quantitative", "title": "Number of games" },
+        "tooltip": [
+          { "field": "Genre", "type": "nominal" },
+          { "field": "Count", "type": "quantitative" }
+        ]
+      }
+    };
+
+    
+    // VIS 1A: Top 10 platforms, stacked by Genre
+   
+    const spec1a = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "aggregate": [{"op":"sum","field":"Global_Sales","as":"TotalSales"}], "groupby":["Platform","Genre"] },
+        { "joinaggregate": [{"op":"sum","field":"TotalSales","as":"PlatformTotal"}], "groupby":["Platform"] },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"PlatformTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 10" }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": { "field":"Platform", "type":"nominal", "sort":"-y", "title": "Platform" },
+        "y": { "field":"TotalSales", "type":"quantitative", "title":"Total Global Sales (millions)" },
+        "color": { "field":"Genre", "type":"nominal" },
+        "tooltip": [
+          { "field":"Platform" },
+          { "field":"Genre" },
+          { "field":"TotalSales", "format": ".2f" }
+        ]
+      }
+    };
+
+   
+    // VIS 1B(top 12 platforms)
+ 
+    const spec1b = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "aggregate": [{"op":"sum","field":"Global_Sales","as":"TotalSales"}], "groupby":["Genre","Platform"] },
+        { "joinaggregate": [{"op":"sum","field":"TotalSales","as":"PlatformTotal"}], "groupby":["Platform"] },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"PlatformTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 12" }
+      ],
+      "mark": "rect",
+      "encoding": {
+        "x": { "field":"Platform", "type":"nominal", "title":"Platform" },
+        "y": { "field":"Genre", "type":"nominal", "title":"Genre" },
+        "color": { "field":"TotalSales", "type":"quantitative", "title":"Global Sales" },
+        "tooltip": [
+          { "field":"Genre" },
+          { "field":"Platform" },
+          { "field":"TotalSales", "format": ".2f" }
+        ]
+      }
+    };
+
+  
+    // VIS 2A: Over time-top 5 genres
+
+    const spec2a = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "filter": "isValid(datum.Year)" },
+        { "aggregate": [{"op":"sum","field":"Global_Sales","as":"TotalSales"}], "groupby":["Year","Genre"] },
+        { "joinaggregate": [{"op":"sum","field":"TotalSales","as":"GenreTotal"}], "groupby":["Genre"] },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"GenreTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 5" }
+      ],
+      "mark": { "type":"line", "point": true },
+      "encoding": {
+        "x": { "field":"Year", "type":"quantitative", "title":"Year" },
+        "y": { "field":"TotalSales", "type":"quantitative", "title":"Total Global Sales (millions)" },
+        "color": { "field":"Genre", "type":"nominal" },
+        "tooltip": [
+          { "field":"Year" },
+          { "field":"Genre" },
+          { "field":"TotalSales", "format": ".2f" }
+        ]
+      }
+    };
+
+    
+    // VIS 2B: Over time- top 5 platforms
+
+    const spec2b = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "filter": "isValid(datum.Year)" },
+        { "aggregate": [{"op":"sum","field":"Global_Sales","as":"TotalSales"}], "groupby":["Year","Platform"] },
+        { "joinaggregate": [{"op":"sum","field":"TotalSales","as":"PlatformTotal"}], "groupby":["Platform"] },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"PlatformTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 5" }
+      ],
+      "mark": { "type":"line", "point": true },
+      "encoding": {
+        "x": { "field":"Year", "type":"quantitative", "title":"Year" },
+        "y": { "field":"TotalSales", "type":"quantitative", "title":"Total Global Sales (millions)" },
+        "color": { "field":"Platform", "type":"nominal" },
+        "tooltip": [
+          { "field":"Year" },
+          { "field":"Platform" },
+          { "field":"TotalSales", "format": ".2f" }
+        ]
+      }
+    };
+
+
+    // VIS 3A: Regional totals by Platform (top 10)
+
+    const spec3a = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "fold": ["NA_Sales","EU_Sales","JP_Sales","Other_Sales"], "as": ["Region","Sales"] },
+        { "aggregate": [{"op":"sum","field":"Sales","as":"TotalSales"}], "groupby":["Platform","Region"] },
+        { "joinaggregate": [{"op":"sum","field":"TotalSales","as":"PlatformTotal"}], "groupby":["Platform"] },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"PlatformTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 10" }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": { "field":"Platform", "type":"nominal", "sort":"-y", "title":"Platform" },
+        "y": { "field":"TotalSales", "type":"quantitative", "title":"Sales (millions)" },
+        "color": { "field":"Region", "type":"nominal" },
+        "tooltip": [
+          { "field":"Platform" },
+          { "field":"Region" },
+          { "field":"TotalSales", "format": ".2f" }
+        ]
+      }
+    };
+
+
+    // VIS 3B: Regional share by Platform (top 10)
+
+    const spec3b = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "fold": ["NA_Sales","EU_Sales","JP_Sales","Other_Sales"], "as": ["Region","Sales"] },
+        { "aggregate": [{"op":"sum","field":"Sales","as":"TotalSales"}], "groupby":["Platform","Region"] },
+        { "joinaggregate": [{"op":"sum","field":"TotalSales","as":"PlatformTotal"}], "groupby":["Platform"] },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"PlatformTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 10" }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": { "field":"Platform", "type":"nominal", "title":"Platform" },
+        "y": { "field":"TotalSales", "type":"quantitative", "stack":"normalize", "title":"Regional Share" },
+        "color": { "field":"Region", "type":"nominal" },
+        "tooltip": [
+          { "field":"Platform" },
+          { "field":"Region" },
+          { "field":"TotalSales", "format": ".2f" }
+        ]
+      }
+    };
+
+
+    // VIS 4A: Genre sales over time (top 6)
+
+    const spec4a = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "filter": "isValid(datum.Year)" },
+        { "aggregate": [{"op":"sum","field":"Global_Sales","as":"TotalSales"}], "groupby":["Year","Genre"] },
+        { "joinaggregate": [{"op":"sum","field":"TotalSales","as":"GenreTotal"}], "groupby":["Genre"] },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"GenreTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 6" }
+      ],
+      "mark": { "type":"line", "point": true },
+      "encoding": {
+        "x": { "field":"Year", "type":"quantitative", "title":"Year" },
+        "y": { "field":"TotalSales", "type":"quantitative", "title":"Total Global Sales (millions)" },
+        "color": { "field":"Genre", "type":"nominal" },
+        "tooltip": [
+          { "field":"Year" },
+          { "field":"Genre" },
+          { "field":"TotalSales", "format": ".2f" }
+        ]
+      }
+    };
+
+    // ----------------------------
+    // VIS 4B: Japan-heavy genres
+    // ----------------------------
+    const spec4b = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": { "url": dataUrl },
+      "transform": [
+        { "filter": "datum.Global_Sales > 0" },
+        { "calculate": "datum.JP_Sales / datum.Global_Sales", "as": "JPShare" },
+        {
+          "aggregate": [
+            { "op":"sum", "field":"Global_Sales", "as":"GlobalTotal" },
+            { "op":"mean", "field":"JPShare", "as":"AvgJPShare" }
+          ],
+          "groupby": ["Genre"]
+        },
+        { "window": [{"op":"rank","as":"rank"}], "sort": [{"field":"GlobalTotal","order":"descending"}] },
+        { "filter": "datum.rank <= 12" }
+      ],
+      "mark": { "type":"circle", "tooltip": true },
+      "encoding": {
+        "x": { "field":"GlobalTotal", "type":"quantitative", "title":"Total Global Sales (millions)" },
+        "y": { "field":"AvgJPShare", "type":"quantitative", "title":"Average JP share" },
+        "size": { "field":"GlobalTotal", "type":"quantitative" },
+        "color": { "field":"Genre", "type":"nominal" }
+      }
+    };
+
+
+    vegaEmbed("#stats", statsSpec, { actions: false });
+    vegaEmbed("#genres", genreSpec, { actions: false });
+
+    vegaEmbed("#vis1a", spec1a, { actions: false });
+    vegaEmbed("#vis1b", spec1b, { actions: false });
+
+    vegaEmbed("#vis2a", spec2a, { actions: false });
+    vegaEmbed("#vis2b", spec2b, { actions: false });
+
+    vegaEmbed("#vis3a", spec3a, { actions: false });
+    vegaEmbed("#vis3b", spec3b, { actions: false });
+
+    vegaEmbed("#vis4a", spec4a, { actions: false });
+    vegaEmbed("#vis4b", spec4b, { actions: false });
   </script>
-
 </body>
 </html>
