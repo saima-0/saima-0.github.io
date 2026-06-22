@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Movie Studio Data Visualization Case Study | Saima Amin</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="container header">
+    <div>
+      <p>
+        <a href="index.html">← Back to Portfolio</a>
+      </p>
+
+      <h1>Movie Studio Data Visualization Website</h1>
+
+      <p class="intro-title">
+        UI/UX Design · Data Visualization · Front-End Development
+      </p>
+
+      <p>
+        A school team project comparing Marvel, DC, and Pixar through revenue,
+        ratings, popularity, and genre trends.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- PROJECT OVERVIEW -->
+    <section class="card">
+      <h2>Project Overview</h2>
+
+      <p>
+        This project is an interactive data visualization website comparing Marvel,
+        DC, and Pixar through box office revenue, ratings, popularity, and genre
+        trends. The goal was to use visual storytelling to help users understand
+        how major movie studios performed over time.
+      </p>
+
+      <figure>
+        <img src="images/website.png" alt="Final movie studio data visualization website homepage" />
+        <figcaption>
+          Final website homepage introducing the Marvel, DC, and Pixar data visualization project.
+        </figcaption>
+      </figure>
+
+      <div class="project-links">
+        <a href="https://midas0901.github.io/Movie-website/" target="_blank" rel="noopener noreferrer">
+          Live Website
+        </a>
+
+        <a href="https://observablehq.com/d/f8f3b538e8400abb" target="_blank" rel="noopener noreferrer">
+          Observable Notebook
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/11v70k3pkvhdjHMGGFf1Vk7fXM_C32eMpU93u3bERaOw/mobilepresent#slide=id.p" target="_blank" rel="noopener noreferrer">
+          Final Presentation
+        </a>
+      </div>
+    </section>
+
+    <!-- PROJECT INFO -->
+    <section class="card">
+      <h2>Project Info</h2>
+
+      <ul>
+        <li><strong>Type:</strong> School team project</li>
+        <li><strong>Course:</strong> IAT 355</li>
+        <li><strong>Timeframe:</strong> Spring 2026</li>
+        <li><strong>Tools:</strong> HTML, CSS, JavaScript, Observable, Kaggle datasets, data visualization</li>
+        <li><strong>Collaborators:</strong> Midas and other team members</li>
+        <li><strong>My role:</strong> UI/UX feedback analysis, visual clarity improvements, chart readability refinement, and case study reflection</li>
+      </ul>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="card">
+      <h2>Problem / Objective</h2>
+
+      <p>
+        The objective was to create a visualization website that helps users compare
+        Marvel, DC, and Pixar. Through the website, we wanted to answer three main
+        questions: which genres perform the best, which studio performs better, and
+        how ratings relate to box office revenue.
+      </p>
+
+      <p>
+        This problem matters because movie performance is often judged through
+        assumptions, such as studio bias, popularity, or the idea that high ratings
+        always equal financial success. By visualizing the data, the project aimed
+        to make these comparisons easier to understand for casual movie-goers,
+        movie enthusiasts, and data-focused users.
+      </p>
+    </section>
+
+    <!-- TARGET AUDIENCE -->
+    <section class="card">
+      <h2>Target Audience</h2>
+
+      <p>
+        The target audience included movie enthusiasts, cinephiles, data science
+        students, and analysts. Movie fans could use the website to compare trends
+        between major studios and genres. Data-focused users could see how raw
+        movie datasets can be transformed into meaningful visual insights.
+      </p>
+    </section>
+
+    <!-- RESEARCH AND DATA SOURCES -->
+    <section class="card">
+      <h2>Research and Data Sources</h2>
+
+      <p>
+        We used multiple Kaggle datasets because one dataset alone did not include
+        all the information needed for the project. The main dataset provided
+        general movie metadata, while secondary datasets helped support TMDB
+        metadata and box office revenue from 2000–2024.
+      </p>
+
+      <p>
+        Using more than one dataset helped us compare revenue, ratings, studios,
+        genres, and popularity more effectively.
+      </p>
+
+      <figure>
+        <img src="images/dataset.png" alt="Kaggle movie dataset used for the visualization project" />
+        <figcaption>
+          Kaggle movie dataset used as one of the sources for movie metadata,
+          ratings, revenue, and studio comparison.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- DESIGN ITERATIONS -->
+    <section class="card">
+      <h2>Design Iterations</h2>
+
+      <h3>Iteration 1: Colour Consistency</h3>
+
+      <p>
+        One feedback issue was that the studio colours were not consistent enough.
+        DC and Pixar originally used similar blue tones, which made the charts
+        harder to compare. To improve this, DC was changed to green and the
+        tri-variate graph was updated to match the same studio colour system.
+      </p>
+
+      <h3>Iteration 2: Readability and Chart Size</h3>
+
+      <p>
+        Another revision focused on readability. The font size was increased from
+        16px to 20px, and the cumulative profit bar graph was enlarged so users
+        could read and compare the data more easily.
+      </p>
+
+      <h3>Future Iteration</h3>
+
+      <p>
+        For a future version, I would add legend-based filtering so users could
+        choose which studios to compare. I would also add stronger annotations for
+        the 2023–2024 revenue drop and remove hover effects from elements that are
+        not clickable.
+      </p>
+    </section>
+
+    <!-- CHALLENGES -->
+    <section class="card">
+      <h2>Challenges and Limitations</h2>
+
+      <p>
+        One major challenge was that the first dataset did not include enough
+        studio-specific information, so we had to find alternative datasets for
+        studio data. We also had missing entries, which affected how complete some
+        visualizations could be.
+      </p>
+
+      <p>
+        Another challenge was integrating the visualizations into the website,
+        especially Vega-Lite embeds. We also redesigned the website layout to
+        reduce cognitive load by spreading out the visualizations instead of
+        overwhelming users with too much information at once.
+      </p>
+
+      <figure>
+        <img src="images/challenge.png" alt="Limitations and challenges slide for the movie visualization project" />
+        <figcaption>
+          Project limitations, including missing studio parameters, missing entries,
+          layout redesign, and Vega-Lite embedding challenges.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- FINAL OUTCOME -->
+    <section class="card">
+      <h2>Final Outcome</h2>
+
+      <p>
+        The final website became clearer and easier to follow. The improved colour
+        system helped users compare studios more accurately, while the larger text
+        and bar graph improved readability. The Covid-19 annotation was also useful
+        because it explained a major revenue dip instead of leaving users to guess
+        why the trend changed.
+      </p>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section class="card">
+      <h2>Takeaways and Future Improvements</h2>
+
+      <p>
+        I learned that data visualization is not only about making charts, but also
+        about helping users understand a story. Clear colours, readable labels,
+        useful annotations, and predictable interactions are important for making a
+        website feel trustworthy and easy to use.
+      </p>
+
+      <p>
+        In the future, I would add legend-based filtering, more hover interactions,
+        and stronger annotations for the 2023–2024 revenue drop.
+      </p>
+    </section>
+
+  </main>
+
+</body>
+</html>
