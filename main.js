@@ -1,4 +1,4 @@
-
+// Dark mode button
 const toggleButton = document.getElementById("theme-toggle");
 
 if (toggleButton) {
@@ -13,28 +13,25 @@ if (toggleButton) {
   });
 }
 
-
-
+// Hide/show section buttons
 const toggleButtons = document.querySelectorAll(".toggle-btn");
 
 toggleButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-
-    // Finding the section this button belongs to
+    // Find the card section this button belongs to
     const card = btn.closest(".card");
 
-    // Finding the content area inside that section
+    // Find the content inside that card
     const content = card.querySelector(".section-content");
 
-    // Toggle hidden class
+    // Hide or show the section content
     content.classList.toggle("hidden");
 
-    // Changing button text
+    // Update button text
     if (content.classList.contains("hidden")) {
       btn.textContent = "Show";
     } else {
       btn.textContent = "Hide";
     }
-
   });
 });
