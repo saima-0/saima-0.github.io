@@ -3,19 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Saima Amin | Portfolio</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header class="container header">
     <div>
       <h1>Saima Amin</h1>
-      <p>Interactive Arts & Technology (IAT) student at SFU</p>
-      <p>I’m interested in game development, interactive websites, and creative technology.</p>
 
-      <button id="theme-toggle">Switch to Dark Mode</button>
+      <p class="intro-title">
+        Interactive Arts & Technology (IAT) student at SFU
+      </p>
+
+      <p>
+        I’m interested in game development, interactive websites, UI/UX design,
+        and creative technology.
+      </p>
+
+      <button id="theme-toggle" type="button">Switch to Dark Mode</button>
     </div>
   </header>
 
@@ -30,7 +40,7 @@
 
       <div class="section-content">
         <ul>
-          <li>Simon Fraser University — Bachelor of Science (ongoing), Interactive Arts & Technology</li>
+          <li>Simon Fraser University — Bachelor of Science, Interactive Arts & Technology</li>
           <li>Rosedale International School — Grade 12 completed</li>
         </ul>
       </div>
@@ -44,20 +54,20 @@
       </div>
 
       <div class="section-content">
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Python (basic)</li>
-          <li>Java (basic)</li>
-          <li>Figma</li>
-          <li>Adobe Illustrator</li>
-          <li>Photoshop</li>
-          <li>UX/UI Design</li>
-          <li>User Research</li>
-          <li>Game Development (beginner)</li>
-          <li>Customer Service</li>
-        </ul>
+        <div class="skills-list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Java</span>
+          <span>Figma</span>
+          <span>Adobe Illustrator</span>
+          <span>Photoshop</span>
+          <span>UX/UI Design</span>
+          <span>User Research</span>
+          <span>Game Development</span>
+          <span>Customer Service</span>
+        </div>
       </div>
     </section>
 
@@ -71,7 +81,7 @@
       <div class="section-content">
         <ul>
           <li>IT Squad Volunteer — Fraser International College</li>
-          <li>Social Media Manager — SFU Bangladeshi Student Club (1.5 years)</li>
+          <li>Social Media Manager — SFU Bangladeshi Student Club, 1.5 years</li>
         </ul>
       </div>
     </section>
@@ -84,15 +94,106 @@
       </div>
 
       <div class="section-content">
-        <ul>
-          
-          <li>Processing Games (Object-Oriented Programming and animation)</li>
-          <li>Personal Portfolio Website</li>
-          <li><a href="visualizations.html">View SVG Visualizations</a></li>
-          <li><a href="vegalite.html">Vega-Lite Visualizations</a></li>
-          <li><a href="mini-d3.html">D3 Assignment</a></li>
+        <div class="projects-grid">
 
-        </ul>
+          <!-- MOVIE WEBSITE PROJECT -->
+          <article class="project-card featured-project">
+            <h3>Movie Studio Data Visualization Website</h3>
+
+            <p class="project-type">
+              Team Project · Data Visualization · UI/UX Design · Front-End Development
+            </p>
+
+            <p>
+              An interactive data visualization website comparing Marvel, DC, and Pixar
+              through box office revenue, ratings, popularity, and genre trends. This
+              project focused on visual storytelling, chart readability, and design
+              improvements based on feedback.
+            </p>
+
+            <p class="project-note">
+              School team project. Live site is hosted through a teammate’s GitHub account.
+            </p>
+
+            <h4>My Contributions</h4>
+
+            <ul>
+              <li>Analyzed feedback and identified high-priority design improvements.</li>
+              <li>Improved studio color consistency so the visualizations were easier to compare.</li>
+              <li>Increased font size to improve readability across the website.</li>
+              <li>Helped improve chart clarity by enlarging the cumulative profit bar graph.</li>
+              <li>Suggested future improvements such as legend filtering, clearer hover states, and stronger annotations for revenue drops.</li>
+            </ul>
+
+            <div class="project-links">
+              <a href="https://midas0901.github.io/Movie-website/" target="_blank" rel="noopener noreferrer">
+                Live Project
+              </a>
+            </div>
+          </article>
+
+          <!-- PORTFOLIO WEBSITE PROJECT -->
+          <article class="project-card">
+            <h3>Personal Portfolio Website</h3>
+
+            <p class="project-type">
+              HTML · CSS · JavaScript
+            </p>
+
+            <p>
+              A personal portfolio website designed to showcase my education, skills,
+              experience, and creative technology projects.
+            </p>
+
+            <ul>
+              <li>Built with HTML, CSS, and JavaScript.</li>
+              <li>Includes dark mode functionality.</li>
+              <li>Uses interactive hide/show buttons for each section.</li>
+              <li>Designed for co-op and professional portfolio use.</li>
+            </ul>
+          </article>
+
+          <!-- PROCESSING PROJECT -->
+          <article class="project-card">
+            <h3>Processing Games</h3>
+
+            <p class="project-type">
+              Java · Object-Oriented Programming · Animation
+            </p>
+
+            <p>
+              Creative coding projects focused on animated characters, movement,
+              interaction, collision logic, and object-oriented programming.
+            </p>
+
+            <ul>
+              <li>Practiced Java and Processing concepts.</li>
+              <li>Created animated interactive characters.</li>
+              <li>Used object-oriented programming to organize code.</li>
+            </ul>
+          </article>
+
+          <!-- DATA VISUALIZATION ASSIGNMENTS -->
+          <article class="project-card">
+            <h3>Data Visualization Assignments</h3>
+
+            <p class="project-type">
+              SVG · Vega-Lite · D3
+            </p>
+
+            <p>
+              A collection of visualization assignments exploring different ways to
+              present data through code and interactive graphics.
+            </p>
+
+            <div class="project-links multiple-links">
+              <a href="visualizations.html">SVG Visualizations</a>
+              <a href="vegalite.html">Vega-Lite</a>
+              <a href="mini-d3.html">D3 Assignment</a>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
@@ -105,7 +206,12 @@
 
       <div class="section-content">
         <p>Email: i.saimaamin@gmail.com</p>
-        <p>GitHub: <a href="https://github.com/saima-0" target="_blank">github.com/saima-0</a></p>
+        <p>
+          GitHub:
+          <a href="https://github.com/saima-0" target="_blank" rel="noopener noreferrer">
+            github.com/saima-0
+          </a>
+        </p>
       </div>
     </section>
 
