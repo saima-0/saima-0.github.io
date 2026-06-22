@@ -65,6 +65,11 @@ h2 {
   padding-bottom: 5px;
 }
 
+h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
 h4 {
   margin-bottom: 8px;
   font-size: 17px;
@@ -230,6 +235,27 @@ a:hover {
   text-decoration: none;
 }
 
+/* ---------- CASE STUDY IMAGES ---------- */
+
+figure {
+  margin: 24px 0;
+}
+
+figure img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid #f0d8bd;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
 /* ---------- DARK MODE ---------- */
 
 body.dark-mode {
@@ -239,6 +265,7 @@ body.dark-mode {
 
 body.dark-mode h1,
 body.dark-mode h2,
+body.dark-mode h3,
 body.dark-mode h4 {
   color: #f0f0f0;
 }
@@ -287,9 +314,16 @@ body.dark-mode a {
   color: #f6ad55;
 }
 
-/* Keep project buttons white text in dark mode */
 body.dark-mode .project-links a {
   color: white;
+}
+
+body.dark-mode figure img {
+  border-color: rgba(255,255,255,0.15);
+}
+
+body.dark-mode figcaption {
+  color: #cccccc;
 }
 
 /* ---------- MOBILE RESPONSIVE ---------- */
