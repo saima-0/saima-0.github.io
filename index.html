@@ -1,588 +1,464 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Portfolio of Saima Amin, an Interactive Arts and Technology student at Simon Fraser University."
+    content="Portfolio of Saima Amin, an Interactive Arts and Technology student working across design, social media, creative coding, and technical support."
   />
 
-  <title>Saima Amin </title>
+  <title>Saima Amin | Designer & Creative Technologist</title>
+
+  <script>
+    const savedTheme = localStorage.getItem("saima-portfolio-theme");
+    if (savedTheme === "light") {
+      document.documentElement.dataset.theme = "light";
+    }
+  </script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <!-- NAVIGATION -->
   <header class="site-header">
     <nav class="container navigation" aria-label="Main navigation">
-
-      <a class="logo" href="#top" aria-label="Return to homepage">
-        SA
+      <a class="logo" href="#top" aria-label="Return to the top of the homepage">
+        <span>SA</span>
       </a>
 
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Work</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
-
-        <button id="theme-toggle" type="button">
-          Dark Mode
-        </button>
       </div>
 
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+      >
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-text">Light</span>
+      </button>
     </nav>
   </header>
 
   <main id="top">
-
-    <!-- HERO / TITLE PAGE -->
-    <section class="hero container">
-
-      <div class="hero-content">
-
+    <!-- HERO -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
         <p class="eyebrow">
-          Designer · Developer · Creative Technologist
+          <span class="status-dot" aria-hidden="true"></span>
+          Designer · Content Creator · Creative Technologist
         </p>
 
-        <h1>
-          I design and build meaningful
-          <span>interactive experiences.</span>
+        <h1 id="hero-title">
+          I turn ideas into
+          <span class="accent-text">clear, engaging experiences.</span>
         </h1>
 
         <p class="hero-description">
           I’m Saima, an Interactive Arts & Technology student at Simon Fraser
-          University. I combine design, research, and code to create interactive
-          websites, visualizations, games, and digital experiences.
+          University. I work across visual design, social media, user-centred
+          experiences, creative coding, and approachable technical support.
         </p>
 
-        <div class="hero-buttons">
-          <a class="primary-button" href="#projects">
-            Explore My Work
+        <div class="hero-actions">
+          <a class="primary-button" href="#experience">
+            View my experience
+            <span aria-hidden="true">↘</span>
           </a>
 
-          <a class="secondary-button" href="#contact">
-            Contact Me
+          <a class="text-button" href="#projects">
+            Explore selected work
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
 
-        <div class="hero-details">
-          <div>
-            <strong>Based in</strong>
-            <span>Metro Vancouver, BC</span>
-          </div>
-
-          <div>
-            <strong>Studying</strong>
-            <span>Interactive Arts & Technology</span>
-          </div>
-
-          <div>
-            <strong>Interests</strong>
-            <span>UI/UX, Web and Games</span>
-          </div>
+        <div class="hero-meta" aria-label="Quick information">
+          <p><span>Based in</span> Burnaby, BC</p>
+          <p><span>Focus</span> Design, content, creative code, support</p>
         </div>
-
       </div>
 
-      <!-- Decorative portfolio visual -->
-      <div class="hero-visual" aria-hidden="true">
+      <!-- INTERACTIVE FLIP CARD -->
+      <div class="hero-art reveal" data-spotlight>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-orb orb-one" aria-hidden="true"></div>
+        <div class="hero-orb orb-two" aria-hidden="true"></div>
 
-        <div class="visual-circle circle-one"></div>
-        <div class="visual-circle circle-two"></div>
+        <div class="flip-shell" data-tilt>
+          <div class="flip-card" id="creative-card">
+            <div class="flip-face flip-front">
+              <div class="flip-topline">
+                <span>Creative profile</span>
+                <span>01 / 02</span>
+              </div>
 
-        <div class="initial-card">
-          <span class="initials">SA</span>
-          <span class="initial-label">Design + Technology</span>
+              <div class="monogram" aria-hidden="true">SA</div>
+
+              <div>
+                <p class="flip-kicker">A small introduction</p>
+                <h2>Curious mind.<br />Intentional design.</h2>
+              </div>
+
+              <button
+                class="flip-button"
+                type="button"
+                data-flip-button
+                aria-controls="creative-card"
+                aria-pressed="false"
+              >
+                Flip to read more
+                <span aria-hidden="true">↻</span>
+              </button>
+            </div>
+
+            <div class="flip-face flip-back">
+              <div class="flip-topline">
+                <span>What drives me</span>
+                <span>02 / 02</span>
+              </div>
+
+              <p class="back-statement">
+                I love to
+                <strong>create, design, and build.</strong>
+              </p>
+
+              <p class="back-description">
+                I enjoy turning early ideas into useful experiences—whether I’m
+                designing a campaign, prototyping an interface, coding an
+                interactive project, or helping someone solve a technical issue.
+              </p>
+
+              <div class="creative-words" aria-label="Creative interests">
+                <span>Create</span>
+                <span>Design</span>
+                <span>Build</span>
+                <span>Support</span>
+              </div>
+
+              <button
+                class="flip-button"
+                type="button"
+                data-flip-button
+                aria-controls="creative-card"
+                aria-pressed="true"
+              >
+                Flip back
+                <span aria-hidden="true">↻</span>
+              </button>
+            </div>
+          </div>
         </div>
-
-        <div class="floating-card floating-card-one">
-          UI/UX
-        </div>
-
-        <div class="floating-card floating-card-two">
-          Creative Code
-        </div>
-
       </div>
+    </section>
 
+    <div class="word-ribbon" aria-hidden="true">
+      <div class="word-ribbon-track">
+        <span>CREATE</span><i>✦</i><span>DESIGN</span><i>✦</i><span>BUILD</span><i>✦</i>
+        <span>CONNECT</span><i>✦</i><span>SUPPORT</span><i>✦</i><span>REFINE</span><i>✦</i>
+        <span>CREATE</span><i>✦</i><span>DESIGN</span><i>✦</i><span>BUILD</span><i>✦</i>
+        <span>CONNECT</span><i>✦</i><span>SUPPORT</span><i>✦</i><span>REFINE</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE: MOVED UP BECAUSE IT IS A PRIMARY STRENGTH -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="section-index">01</p>
+          <p class="section-label">Experience</p>
+          <h2>Creative leadership and practical technical support.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item primary-experience reveal">
+            <div class="timeline-date">Sep 2024 - May 2026</div>
+
+            <div class="timeline-content">
+              <div class="timeline-title-row">
+                <div>
+                  <h3>Social Media Manager</h3>
+                  <p>Bangladeshi Students’ Association (SFU) · Burnaby, BC</p>
+                </div>
+
+                <a class="small-link" href="social-media.html">Explore work ↗</a>
+              </div>
+
+              <ul>
+                <li>
+                  Led a three-member team to deliver marketing initiatives on
+                  schedule through coordination and task management.
+                </li>
+                <li>
+                  Designed event posters, visual assets, and digital content to
+                  strengthen event promotion.
+                </li>
+                <li>
+                  Planned and executed promotional campaigns that generated
+                  more than 150 event registrations.
+                </li>
+                <li>
+                  Managed online communications and responded promptly to
+                  member inquiries.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-date">May - Aug 2024</div>
+
+            <div class="timeline-content">
+              <div class="timeline-title-row">
+                <div>
+                  <h3>Technical Support Assistant</h3>
+                  <p>Fraser International College · Burnaby, BC</p>
+                </div>
+              </div>
+
+              <ul>
+                <li>
+                  Supported password resets, authentication issues, Wi-Fi
+                  configuration, account setup, and system-access problems.
+                </li>
+                <li>
+                  Guided users through clear troubleshooting steps to restore
+                  access and minimize disruptions.
+                </li>
+                <li>
+                  Managed multiple requests by prioritizing urgent issues,
+                  communicating progress, and following up to confirm resolution.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section container">
-
-      <div class="section-heading">
-        <p class="section-number">01</p>
-
-        <div>
-          <p class="section-label">About Me</p>
-          <h2>Creating experiences through design and technology</h2>
-        </div>
+      <div class="section-intro reveal">
+        <p class="section-index">02</p>
+        <p class="section-label">About</p>
+        <h2>I care about how an experience looks, works, and feels.</h2>
       </div>
 
-      <div class="about-grid">
-
-        <div class="about-text">
-          <p>
-            I am a Bachelor of Science student in Interactive Arts & Technology
-            at Simon Fraser University. My work explores how visual design,
-            technology, and interaction can be combined to communicate ideas
-            clearly and create engaging user experiences.
+      <div class="about-layout">
+        <div class="about-copy reveal">
+          <p class="large-copy">
+            I am pursuing a Bachelor of Science in Interactive Arts & Technology
+            at Simon Fraser University.
           </p>
 
           <p>
-            Through individual and team projects, I have developed experience
-            with front-end development, interactive data visualization,
-            object-oriented programming, user research, and visual design.
+            My work combines visual communication, user-centred design,
+            technology, and community engagement. I enjoy moving between
+            creative and practical challenges—from designing social content and
+            prototypes to building interactive projects and helping users solve
+            technical problems.
           </p>
-
-         
         </div>
 
-        <div class="skills-area">
-
-          <div class="skill-category">
-            <h3>Design</h3>
-
-            <div class="skills-list">
-              <span>UI/UX Design</span>
-              <span>Figma</span>
-              <span>User Research</span>
-              <span>Adobe Illustrator</span>
-              <span>Photoshop</span>
+        <div class="capability-list reveal">
+          <article>
+            <span>01</span>
+            <div>
+              <h3>Design & research</h3>
+              <p>Figma, Adobe Illustrator, Adobe InDesign, Canva, UX research, HCI</p>
             </div>
-          </div>
+          </article>
 
-          <div class="skill-category">
-            <h3>Development</h3>
-
-            <div class="skills-list">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Java</span>
-              <span>Python</span>
-              <span>D3</span>
-              <span>Vega-Lite</span>
+          <article>
+            <span>02</span>
+            <div>
+              <h3>Programming & web</h3>
+              <p>HTML, CSS, basic JavaScript, Java (OOP), Processing</p>
             </div>
-          </div>
+          </article>
 
-          <div class="skill-category">
-            <h3>Professional</h3>
-
-            <div class="skills-list">
-              <span>Team Collaboration</span>
-              <span>Communication</span>
-              <span>Leadership</span>
-              <span>Customer Service</span>
+          <article>
+            <span>03</span>
+            <div>
+              <h3>Tools & professional skills</h3>
+              <p>Microsoft Excel, Tableau, team coordination, communication, technical support</p>
             </div>
-          </div>
-
+          </article>
         </div>
-
       </div>
-
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section projects-section">
-
+    <section id="projects" class="section work-section">
       <div class="container">
-
-        <div class="section-heading">
-          <p class="section-number">02</p>
-
-          <div>
-            <p class="section-label">Selected Work</p>
-            <h2>Projects that combine research, design, and development</h2>
-          </div>
+        <div class="section-intro reveal">
+          <p class="section-index">03</p>
+          <p class="section-label">Selected work</p>
+          <h2>Projects across design, content, and interactive technology.</h2>
         </div>
 
-        <!-- FEATURED MOVIE PROJECT -->
-        <article class="featured-project">
-
-          <div class="featured-project-content">
-
-            <p class="project-category">
-              Featured Project
-            </p>
-
-            <h3>
-              The Triad of Modern Cinema
-            </h3>
-
-            <p class="project-subtitle">
-              Movie Studio Data Visualization Website
-            </p>
-
-            <div class="project-metadata">
-              <span>Introduction to Visual Analytics</span>
-              <span>January–April 2026</span>
-              <span>Team Project</span>
+        <article class="featured-work reveal" data-tilt>
+          <div class="featured-content">
+            <div class="project-heading-row">
+              <p class="project-type">Featured case study · IAT 355</p>
+              <span class="project-year">2026</span>
             </div>
 
-            <p>
-              An interactive data visualization website that compares Marvel,
-              DC, and Pixar through box-office revenue, audience ratings,
-              popularity, and genre trends.
+            <h3>The Triad of Modern Cinema</h3>
+            <p class="project-subtitle">Movie studio data visualization website</p>
+
+            <p class="project-summary">
+              An interactive team website comparing Marvel, DC, and Pixar. I
+              contributed to colour consistency, typography, chart sizing, and
+              interface presentation to improve readability and strengthen the
+              visual story.
             </p>
 
-            <p>
-              The project translates a large movie dataset into an accessible
-              visual story, helping users identify patterns in the performance
-              and cultural influence of the three studios.
-            </p>
-
-            <div class="contribution-box">
-              <h4>My contributions</h4>
-
-              <ul>
-                <li>
-                  Analyzed critique feedback and identified the most important
-                  usability and visual-design improvements.
-                </li>
-
-                <li>
-                  Improved colour consistency across studio visualizations,
-                  making Marvel, DC, and Pixar easier to distinguish.
-                </li>
-
-                <li>
-                  Increased typography and chart sizes to improve readability
-                  and make important findings more noticeable.
-                </li>
-
-                <li>
-                  Helped refine annotations and supporting explanations so users
-                  could better understand changes in revenue and performance.
-                </li>
-
-                <li>
-                  Contributed to the interface structure and front-end
-                  presentation of the final website.
-                </li>
-              </ul>
-            </div>
-
-            <div class="project-tools">
+            <div class="project-tags" aria-label="Tools used">
               <span>HTML</span>
               <span>CSS</span>
               <span>JavaScript</span>
-              <span>D3</span>
               <span>Vega-Lite</span>
-              <span>Data Visualization</span>
             </div>
 
-            <div class="project-links">
-              <a class="primary-button" href="movie-case-study.html">
-                Read Case Study
-              </a>
-
+            <div class="project-actions">
+              <a class="primary-button" href="movie-case-study.html">Read case study</a>
               <a
-                class="secondary-button"
+                class="text-button"
                 href="https://midas0901.github.io/Movie-website/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View Live Project
+                View live project <span aria-hidden="true">↗</span>
               </a>
             </div>
-
-            <p class="project-note">
-              This was a school team project. The live website is hosted through
-              a teammate’s GitHub account.
-            </p>
-
           </div>
 
-          <!-- CSS-created project preview -->
-          <div class="project-preview" aria-label="Stylized data visualization preview">
-
-            <div class="browser-window">
-
-              <div class="browser-header">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-
-              <div class="browser-content">
-
-                <div class="preview-title"></div>
-                <div class="preview-subtitle"></div>
-
-                <div class="preview-chart">
-                  <div class="chart-bar bar-one"></div>
-                  <div class="chart-bar bar-two"></div>
-                  <div class="chart-bar bar-three"></div>
-                  <div class="chart-bar bar-four"></div>
-                  <div class="chart-bar bar-five"></div>
-                </div>
-
-                <div class="preview-legend">
-                  <span>Marvel</span>
-                  <span>DC</span>
-                  <span>Pixar</span>
-                </div>
-
-              </div>
-
+          <div class="cinema-visual" aria-hidden="true">
+            <div class="visual-label">DATA / STORY / CINEMA</div>
+            <div class="data-line line-one"></div>
+            <div class="data-line line-two"></div>
+            <div class="data-line line-three"></div>
+            <div class="studio-bubbles">
+              <span>MARVEL</span>
+              <span>DC</span>
+              <span>PIXAR</span>
             </div>
-
+            <p>03 studios<br />01 visual story</p>
           </div>
-
         </article>
 
-        <!-- OTHER PROJECTS -->
-        <div class="project-grid">
-
-          <article class="project-card">
-
-            <p class="project-category">
-              Creative Coding
-            </p>
-
-            <h3>Java Interactive Creatures</h3>
-
+        <div class="work-grid">
+          <article class="work-card social-work-card reveal" data-tilt>
+            <div class="card-number">01</div>
+            <p class="project-type">Social media & content</p>
+            <h3>Campaigns, Posters & Results</h3>
             <p>
-              Object-oriented Java projects featuring animated creatures,
-              targeted movement, food-seeking behaviour, collision detection,
-              avoidance, and interactive input.
+              Promotional posters, visual assets, campaign planning, and
+              audience results from my Social Media Manager experience.
             </p>
 
-            <p class="project-contribution">
-              <strong>My role:</strong> Designed the characters and programmed
-              their movement, interactions, collision logic, and visual states.
+            <div class="social-mini-metrics" aria-label="Selected campaign results">
+              <span><strong>8.9K</strong> views</span>
+              <span><strong>4.5K</strong> reached</span>
+            </div>
+
+            <a class="card-cta" href="social-media.html">
+              Explore social media work
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="work-card reveal" data-tilt>
+            <div class="card-number">02</div>
+            <p class="project-type">UX research · IAT 351</p>
+            <h3>Whisper — Classroom Participation App</h3>
+            <p>
+              An anonymous classroom participation prototype co-designed with
+              HCI principles to reduce cognitive load and encourage more
+              inclusive student engagement.
             </p>
 
-            <div class="project-tools">
+            <div class="project-tags">
+              <span>UX Research</span>
+              <span>Figma</span>
+              <span>HCI</span>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-tilt>
+            <div class="card-number">03</div>
+            <p class="project-type">Creative coding · IAT 265</p>
+            <h3>Processing Games</h3>
+            <p>
+              Animated characters and interactive games developed with
+              object-oriented programming, movement systems, and collision
+              detection.
+            </p>
+
+            <div class="project-tags">
               <span>Java</span>
               <span>Processing</span>
               <span>OOP</span>
-              <span>Animation</span>
             </div>
-
           </article>
-
-          <article class="project-card">
-
-            <p class="project-category">
-              Data Visualization
-            </p>
-
-            <h3>Visualization Experiments</h3>
-
-            <p>
-              A collection of projects exploring how visual hierarchy, colour,
-              interaction, and different programming tools can communicate data.
-            </p>
-
-            <p class="project-contribution">
-              <strong>My role:</strong> Developed the visualizations and made
-              design decisions about data encoding, layout, labels, and interaction.
-            </p>
-
-            <div class="project-links text-links">
-              <a href="visualizations.html">SVG Work</a>
-              <a href="vegalite.html">Vega-Lite Work</a>
-              <a href="mini-d3.html">D3 Work</a>
-            </div>
-
-          </article>
-
-          <article class="project-card">
-
-            <p class="project-category">
-              Web Design
-            </p>
-
-            <h3>Personal Portfolio Website</h3>
-
-            <p>
-              A responsive portfolio designed and developed to communicate my
-              skills, experience, and creative technology projects to employers.
-            </p>
-
-            <p class="project-contribution">
-              <strong>My role:</strong> Designed the visual system and developed
-              the complete website using HTML, CSS, and JavaScript.
-            </p>
-
-            <div class="project-tools">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Responsive Design</span>
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section container">
-
-      <div class="section-heading">
-        <p class="section-number">03</p>
-
-        <div>
-          <p class="section-label">Experience</p>
-          <h2>Leadership, communication, and community involvement</h2>
         </div>
       </div>
-
-      <div class="experience-grid">
-
-        <article class="experience-card">
-
-          <div class="experience-top">
-            <div>
-              <h3>Social Media Manager</h3>
-              <p>SFU Bangladeshi Student Club</p>
-            </div>
-
-            <span>1.5 years</span>
-          </div>
-
-          <ul>
-            <li>
-              Coordinated a three-person team to plan and deliver promotional
-              content for student events and club initiatives.
-            </li>
-
-            <li>
-              Designed event posters and digital content using visual design tools.
-            </li>
-
-            <li>
-              Supported promotional campaigns that generated more than 150 event
-              registrations.
-            </li>
-
-            <li>
-              Managed online communication and responded to questions from
-              students and community members.
-            </li>
-          </ul>
-
-        </article>
-
-        <article class="experience-card">
-
-          <div class="experience-top">
-            <div>
-              <h3>IT Squad Volunteer</h3>
-              <p>Fraser International College</p>
-            </div>
-          </div>
-
-          <ul>
-            <li>
-              Assisted students with basic technology questions and digital tools.
-            </li>
-
-            <li>
-              Communicated technical information in clear and approachable language.
-            </li>
-
-            <li>
-              Collaborated with other volunteers to support students and campus events.
-            </li>
-          </ul>
-
-        </article>
-
-      </div>
-
     </section>
 
     <!-- EDUCATION -->
-    <section class="section education-section">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <p class="section-number">04</p>
-
-          <div>
-            <p class="section-label">Education</p>
-            <h2>Academic background</h2>
-          </div>
+    <section class="education-band">
+      <div class="container education-inner reveal">
+        <div>
+          <p class="section-label">Education</p>
+          <h2>Simon Fraser University</h2>
         </div>
 
-        <div class="education-card">
-
-          <div>
-            <h3>Simon Fraser University</h3>
-
-            <p>
-              Bachelor of Science in Interactive Arts & Technology
-            </p>
-          </div>
-
-          <span>Burnaby and Surrey, BC</span>
-
+        <div class="education-details">
+          <p>Bachelor of Science</p>
+          <p>Interactive Arts & Technology</p>
+          <p>May 2023 - Present · Burnaby, BC</p>
         </div>
-
       </div>
-
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="contact-section">
-
-      <div class="container contact-content">
-
-        <p class="section-label">Let’s Connect</p>
-
-       
-
-        <p>
-          I am interested in opportunities involving UI/UX design, interactive
-          websites, creative technology, social media, and digital content.
-        </p>
-
-        <div class="contact-links">
-
-          <!-- Replace this placeholder with your real SFU email -->
-          <a
-            class="primary-button"
-            href="mailto:sba195@sfu.ca"
-          >
-            Email Me
-          </a>
-
-          <a
-            class="secondary-button contact-secondary"
-            href="https://github.com/saima-0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View GitHub
-          </a>
-
+      <div class="container contact-layout reveal">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>A simple hello is a good place to start.</h2>
         </div>
 
-        <p class="email-display">
-          sba195@sfu.ca
-        </p>
+        <div class="contact-copy">
+          <p>
+            I’m open to thoughtful opportunities involving UI/UX, digital
+            content, social media, creative technology, and user support.
+          </p>
 
+          <div class="contact-actions">
+            <a class="primary-button" href="mailto:sba195@sfu.ca">Email me</a>
+            <a
+              class="text-button light-text-button"
+              href="https://github.com/saima-0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <p class="email-text">sba195@sfu.ca</p>
+        </div>
       </div>
-
     </section>
-
   </main>
 
   <footer>
@@ -593,6 +469,5 @@
   </footer>
 
   <script src="main.js"></script>
-
 </body>
 </html>
