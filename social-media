@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Social media campaigns, poster designs, and audience results by Saima Amin."
+  />
+
+  <title>Social Media Work | Saima Amin</title>
+
+  <script>
+    const savedTheme = localStorage.getItem("saima-portfolio-theme");
+    if (savedTheme === "light") {
+      document.documentElement.dataset.theme = "light";
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="container navigation" aria-label="Main navigation">
+      <a class="logo" href="index.html" aria-label="Return to homepage">
+        <span>SA</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#projects">Work</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+      >
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-text">Light</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="case-hero container">
+      <div class="case-hero-copy reveal">
+        <a class="back-link" href="index.html#projects">← Back to selected work</a>
+        <p class="eyebrow">Social media · Content design · Campaign management</p>
+
+        <h1>
+          Designing content that
+          <span class="accent-text">connects with a community.</span>
+        </h1>
+
+        <p>
+          Selected work from my role as Social Media Manager for the
+          Bangladeshi Students’ Association at SFU from September 2024 to May
+          2026. I led a three-member team, designed campaign visuals, planned
+          promotions, and managed online communication.
+        </p>
+      </div>
+
+      <div class="metrics-panel reveal" data-tilt>
+        <p class="metrics-label">Selected campaign impact</p>
+
+        <div class="metric-grid">
+          <article>
+            <strong>8.9K</strong>
+            <span>Top content views</span>
+          </article>
+
+          <article>
+            <strong>4.5K</strong>
+            <span>Top accounts reached</span>
+          </article>
+
+          <article>
+            <strong>150+</strong>
+            <span>Event registrations supported</span>
+          </article>
+        </div>
+
+        <p class="metrics-note">
+          Results reflect collaborative campaigns and content I helped plan,
+          design, coordinate, or manage.
+        </p>
+      </div>
+    </section>
+
+    <!-- ROLE OVERVIEW -->
+    <section class="section container">
+      <div class="section-intro reveal">
+        <p class="section-index">01</p>
+        <p class="section-label">My role</p>
+        <h2>Planning, designing, and coordinating content from start to finish.</h2>
+      </div>
+
+      <div class="role-grid">
+        <article class="role-card reveal">
+          <span>Lead</span>
+          <h3>Team coordination</h3>
+          <p>
+            Led a three-member team and used clear coordination and task
+            management to keep marketing initiatives on schedule.
+          </p>
+        </article>
+
+        <article class="role-card reveal">
+          <span>Design</span>
+          <h3>Visual communication</h3>
+          <p>
+            Designed event posters, visual assets, and digital content to make
+            event information clear and strengthen promotion.
+          </p>
+        </article>
+
+        <article class="role-card reveal">
+          <span>Manage</span>
+          <h3>Campaigns & community</h3>
+          <p>
+            Planned promotional campaigns, managed online communication, and
+            responded promptly to questions from members.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section">
+      <div class="container">
+        <div class="gallery-header reveal">
+          <div>
+            <p class="section-index">02</p>
+            <p class="section-label">Selected work</p>
+            <h2>Campaign visuals and measurable results.</h2>
+          </div>
+
+          <div class="filter-buttons" aria-label="Filter social media work">
+            <button class="filter-button active" type="button" data-filter="all">All work</button>
+            <button class="filter-button" type="button" data-filter="poster">Posters</button>
+            <button class="filter-button" type="button" data-filter="results">Results</button>
+          </div>
+        </div>
+
+        <div class="media-gallery">
+          <article class="media-card reveal" data-category="poster" data-tilt>
+            <button class="gallery-image-button" type="button" data-lightbox>
+              <img
+                src="images/poster1.jpg"
+                alt="Selected social media poster designed for the Bangladeshi Students’ Association at SFU"
+              />
+              <span class="view-label">View poster ↗</span>
+            </button>
+
+            <div class="media-card-content">
+              <p class="project-type">Poster 01</p>
+              <h3>Event Promotion</h3>
+              <p>
+                A promotional design that organizes the event message, date,
+                and call to action into a clear social-media format.
+              </p>
+            </div>
+          </article>
+
+          <article class="media-card reveal" data-category="poster" data-tilt>
+            <button class="gallery-image-button" type="button" data-lightbox>
+              <img
+                src="images/poster2.jpg"
+                alt="Selected event campaign poster designed for social media"
+              />
+              <span class="view-label">View poster ↗</span>
+            </button>
+
+            <div class="media-card-content">
+              <p class="project-type">Poster 02</p>
+              <h3>Community Campaign</h3>
+              <p>
+                A visually engaging campaign poster created to attract attention
+                while keeping the information easy to scan.
+              </p>
+            </div>
+          </article>
+
+          <article class="media-card reveal" data-category="poster" data-tilt>
+            <button class="gallery-image-button" type="button" data-lightbox>
+              <img
+                src="images/poster3.jpg"
+                alt="Selected digital campaign poster for a student event"
+              />
+              <span class="view-label">View poster ↗</span>
+            </button>
+
+            <div class="media-card-content">
+              <p class="project-type">Poster 03</p>
+              <h3>Digital Event Campaign</h3>
+              <p>
+                A social-first visual designed to communicate quickly and help
+                encourage student participation.
+              </p>
+            </div>
+          </article>
+
+          <article class="media-card reveal" data-category="poster" data-tilt>
+            <button class="gallery-image-button" type="button" data-lightbox>
+              <img
+                src="images/poster4.jpg"
+                alt="Selected social media design for a student association campaign"
+              />
+              <span class="view-label">View poster ↗</span>
+            </button>
+
+            <div class="media-card-content">
+              <p class="project-type">Poster 04</p>
+              <h3>Branded Social Content</h3>
+              <p>
+                A campaign piece balancing a distinctive visual direction with
+                accessible event details.
+              </p>
+            </div>
+          </article>
+
+          <article class="media-card reveal" data-category="poster" data-tilt>
+            <button class="gallery-image-button" type="button" data-lightbox>
+              <img
+                src="images/poster5.jpg"
+                alt="Selected event announcement poster designed for social media"
+              />
+              <span class="view-label">View poster ↗</span>
+            </button>
+
+            <div class="media-card-content">
+              <p class="project-type">Poster 05</p>
+              <h3>Event Announcement</h3>
+              <p>
+                An announcement design that emphasizes the event’s most useful
+                details and gives the campaign a memorable visual identity.
+              </p>
+            </div>
+          </article>
+
+          <!-- COMBINED RESULTS CARD -->
+          <article class="results-feature reveal" data-category="results">
+            <div class="results-copy">
+              <p class="project-type">Campaign results</p>
+              <h3>Content that reached beyond the immediate club community.</h3>
+              <p>
+                Selected content generated up to <strong>8.9K views</strong>
+                and reached up to <strong>4.5K accounts</strong>. Several other
+                posts received more than 6K views, while promotional campaigns
+                supported more than 150 event registrations.
+              </p>
+
+              <div class="results-highlights">
+                <span><strong>8.9K</strong> highest views</span>
+                <span><strong>4.5K</strong> highest reach</span>
+                <span><strong>150+</strong> registrations</span>
+              </div>
+
+              <p class="result-disclaimer">
+                These are collaborative account results. My contribution
+                included team coordination, campaign planning, visual design,
+                and community communication.
+              </p>
+            </div>
+
+            <div class="results-images">
+              <button
+                class="gallery-image-button result-image-button"
+                type="button"
+                data-lightbox
+                aria-label="Open Instagram views screenshot"
+              >
+                <img
+                  src="images/insights1.PNG"
+                  alt="Instagram insights showing selected posts receiving up to 8.9 thousand views"
+                />
+                <span class="view-label">View results ↗</span>
+              </button>
+
+              <button
+                class="gallery-image-button result-image-button"
+                type="button"
+                data-lightbox
+                aria-label="Open Instagram accounts reached screenshot"
+              >
+                <img
+                  src="images/insights2.PNG"
+                  alt="Instagram insights showing selected posts reaching up to 4.5 thousand accounts"
+                />
+                <span class="view-label">View results ↗</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBTLE CONTACT -->
+    <section class="contact-section compact-contact">
+      <div class="container contact-layout reveal">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>Open to thoughtful creative opportunities.</h2>
+        </div>
+
+        <div class="contact-copy">
+          <p>
+            I’m interested in social media, content design, UI/UX, creative
+            technology, and community-focused work.
+          </p>
+          <a class="primary-button" href="mailto:sba195@sfu.ca">Email me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>Social media portfolio · Saima Amin</p>
+      <a href="index.html">Return home ↑</a>
+    </div>
+  </footer>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="lightbox-close" type="button" aria-label="Close image preview">×</button>
+    <img class="lightbox-image" src="" alt="" />
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
