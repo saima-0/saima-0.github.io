@@ -1,223 +1,399 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Case study for The Triad of Modern Cinema, an interactive data visualization website by Saima Amin and collaborators."
+  />
 
-  <title>Movie Studio Data Visualization Case Study | Saima Amin</title>
+  <title>The Triad of Modern Cinema | Saima Amin</title>
+
+  <script>
+    const savedTheme = localStorage.getItem("saima-portfolio-theme");
+    if (savedTheme === "light") {
+      document.documentElement.dataset.theme = "light";
+    }
+  </script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="container header">
-    <div>
-      <p>
-        <a href="index.html">← Back to Portfolio</a>
-      </p>
+  <header class="site-header">
+    <nav class="container navigation" aria-label="Main navigation">
+      <a class="logo" href="index.html" aria-label="Return to the homepage">
+        <span>SA</span>
+      </a>
 
-      <h1>Movie Studio Data Visualization Website</h1>
+      <div class="nav-links">
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#projects">Work</a>
+        <a href="index.html#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-      <p class="intro-title">
-        UI/UX Design · Data Visualization · Front-End Development
-      </p>
-
-      <p>
-        A school team project comparing Marvel, DC, and Pixar through revenue,
-        ratings, popularity, and genre trends.
-      </p>
-    </div>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+      >
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-text">Light</span>
+      </button>
+    </nav>
   </header>
 
-  <main class="container">
+  <main>
+    <!-- CASE STUDY HERO -->
+    <section class="study-hero container">
+      <div class="study-hero-copy reveal">
+        <a class="back-link" href="index.html#projects">← Back to selected work</a>
 
-    <!-- PROJECT OVERVIEW -->
-    <section class="card">
-      <h2>Project Overview</h2>
+        <p class="eyebrow">Data visualization · UI/UX · IAT 355</p>
+        <h1>The Triad of <span class="accent-text">Modern Cinema.</span></h1>
 
-      <p>
-        This project is an interactive data visualization website comparing Marvel,
-        DC, and Pixar through box office revenue, ratings, popularity, and genre
-        trends. The goal was to use visual storytelling to help users understand
-        how major movie studios performed over time.
-      </p>
+        <p class="study-lead">
+          An interactive visual story comparing Marvel, DC, and Pixar through
+          revenue, ratings, popularity, and genre trends. I focused on making
+          the final experience clearer, more consistent, and easier to read.
+        </p>
 
-      <figure>
-        <img src="images/website.png" alt="Final movie studio data visualization website homepage" />
-        <figcaption>
-          Final website homepage introducing the Marvel, DC, and Pixar data visualization project.
-        </figcaption>
-      </figure>
+        <div class="project-actions">
+          <a
+            class="primary-button"
+            href="https://midas0901.github.io/Movie-website/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View live website <span aria-hidden="true">↗</span>
+          </a>
 
-      <div class="project-links">
-        <a href="https://midas0901.github.io/Movie-website/" target="_blank" rel="noopener noreferrer">
-          Live Website
-        </a>
+          <a
+            class="text-button"
+            href="https://observablehq.com/d/f8f3b538e8400abb"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Observable notebook <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
 
-        <a href="https://observablehq.com/d/f8f3b538e8400abb" target="_blank" rel="noopener noreferrer">
-          Observable Notebook
-        </a>
+      <div class="study-hero-visual reveal">
+        <div class="browser-frame browser-frame--large" data-tilt>
+          <div class="browser-frame-top" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <p>movie data story</p>
+          </div>
+
+          <button class="study-image-button" type="button" data-lightbox>
+            <img
+              src="images/website.png"
+              alt="Homepage of The Triad of Modern Cinema data visualization website"
+            />
+            <span>View image ↗</span>
+          </button>
+        </div>
       </div>
     </section>
 
-    <!-- PROJECT INFO -->
-    <section class="card">
-      <h2>Project Info</h2>
-
-      <ul>
-        <li><strong>Type:</strong> School team project</li>
-        <li><strong>Course:</strong> IAT 355</li>
-        <li><strong>Timeframe:</strong> Spring 2026</li>
-        <li><strong>Tools:</strong> HTML, CSS, JavaScript, Observable, Kaggle datasets, data visualization</li>
-        <li><strong>Collaborators:</strong> Saima, Phumnawat, Anthony</li>
-        <li><strong>My role:</strong> UI/UX feedback analysis, visual clarity improvements, chart readability refinement, and case study reflection</li>
-      </ul>
+    <section class="study-meta-band">
+      <div class="container study-meta-grid reveal">
+        <article>
+          <span>Course</span>
+          <strong>IAT 355</strong>
+        </article>
+        <article>
+          <span>Timeframe</span>
+          <strong>Spring 2026</strong>
+        </article>
+        <article>
+          <span>Team</span>
+          <strong>Saima, Phumnawat, Anthony</strong>
+        </article>
+        <article>
+          <span>My focus</span>
+          <strong>Visual clarity & interface refinement</strong>
+        </article>
+      </div>
     </section>
 
-    <!-- PROBLEM -->
-    <section class="card">
-      <h2>Problem / Objective</h2>
+    <nav class="study-jump-nav" aria-label="Case study sections">
+      <div class="container">
+        <a href="#overview">Overview</a>
+        <a href="#research">Research</a>
+        <a href="#contribution">My contribution</a>
+        <a href="#iterations">Iterations</a>
+        <a href="#outcome">Outcome</a>
+      </div>
+    </nav>
 
-      <p>
-        The objective was to create a visualization website that helps users compare
-        Marvel, DC, and Pixar. Through the website, we wanted to answer three main
-        questions: which genres perform the best, which studio performs better, and
-        how ratings relate to box office revenue.
-      </p>
+    <!-- OVERVIEW -->
+    <section id="overview" class="section container study-section">
+      <div class="study-section-heading reveal">
+        <p class="section-index">01</p>
+        <p class="section-label">Overview</p>
+        <h2>Turning a large movie dataset into a visual story.</h2>
+      </div>
 
-      <p>
-        This problem matters because movie performance is often judged through
-        assumptions, such as studio bias, popularity, or the idea that high ratings
-        always equal financial success. By visualizing the data, the project aimed
-        to make these comparisons easier to understand for casual movie-goers,
-        movie enthusiasts, and data-focused users.
-      </p>
+      <div class="study-two-column reveal">
+        <div class="study-large-copy">
+          <p>
+            The team created an interactive website that helps people compare
+            three major studios without needing to interpret a spreadsheet or
+            move between disconnected charts.
+          </p>
+        </div>
+
+        <div class="study-body-copy">
+          <h3>The problem</h3>
+          <p>
+            Movie performance is often discussed through assumptions: a popular
+            studio must be the most profitable, a highly rated movie must earn
+            more, or one genre always performs best. Raw datasets made those
+            questions difficult to investigate quickly.
+          </p>
+
+          <h3>The objective</h3>
+          <p>
+            We aimed to help movie enthusiasts and data-focused users explore
+            which genres perform best, how the studios compare, and how audience
+            ratings relate to box-office revenue.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- TARGET AUDIENCE -->
-    <section class="card">
-      <h2>Target Audience</h2>
+    <!-- RESEARCH -->
+    <section id="research" class="section study-tonal-section">
+      <div class="container">
+        <div class="study-section-heading reveal">
+          <p class="section-index">02</p>
+          <p class="section-label">Research and data</p>
+          <h2>One dataset was not enough to answer the full question.</h2>
+        </div>
 
-      <p>
-        The target audience included movie enthusiasts, cinephiles, data science
-        students, and analysts. Movie fans could use the website to compare trends
-        between major studios and genres. Data-focused users could see how raw
-        movie datasets can be transformed into meaningful visual insights.
-      </p>
+        <div class="study-media-split reveal">
+          <figure class="study-figure study-figure--wide">
+            <button class="study-image-button" type="button" data-lightbox>
+              <img
+                src="images/dataset.jpg"
+                alt="Movie dataset used to compare studios, ratings, genres, popularity, and revenue"
+              />
+              <span>View image ↗</span>
+            </button>
+            <figcaption>
+              A selection of the movie data used for the studio comparison.
+            </figcaption>
+          </figure>
+
+          <div class="study-body-copy">
+            <p>
+              The main dataset contained broad movie metadata, but it did not
+              provide every studio-specific field we needed. We combined
+              multiple Kaggle and TMDB-related sources to support comparisons of
+              revenue, ratings, popularity, studios, and genres from 2000–2024.
+            </p>
+
+            <div class="study-callout">
+              <span>Research challenge</span>
+              <p>
+                Missing values and inconsistent studio information affected how
+                complete some visualizations could be. The team had to compare
+                sources and make careful decisions about what could be shown.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- RESEARCH AND DATA SOURCES -->
-    <section class="card">
-      <h2>Research and Data Sources</h2>
+    <!-- CONTRIBUTION -->
+    <section id="contribution" class="section container study-section">
+      <div class="study-section-heading reveal">
+        <p class="section-index">03</p>
+        <p class="section-label">My contribution</p>
+        <h2>I translated critique into focused design improvements.</h2>
+      </div>
 
-      <p>
-        We used multiple Kaggle datasets because one dataset alone did not include
-        all the information needed for the project. The main dataset provided
-        general movie metadata, while secondary datasets helped support TMDB
-        metadata and box office revenue from 2000–2024.
-      </p>
+      <div class="contribution-grid">
+        <article class="contribution-card reveal">
+          <span>01</span>
+          <h3>Feedback analysis</h3>
+          <p>
+            Reviewed critique and identified the changes that would most improve
+            usability, visual hierarchy, and comprehension.
+          </p>
+        </article>
 
-      <p>
-        Using more than one dataset helped us compare revenue, ratings, studios,
-        genres, and popularity more effectively.
-      </p>
+        <article class="contribution-card reveal">
+          <span>02</span>
+          <h3>Colour consistency</h3>
+          <p>
+            Helped strengthen the visual system so Marvel, DC, and Pixar could
+            be distinguished more reliably across charts.
+          </p>
+        </article>
 
-      <figure>
-        <img src="images/dataset.png" alt="Kaggle movie dataset used for the visualization project" />
-        <figcaption>
-          Kaggle movie dataset used as one of the sources for movie metadata,
-          ratings, revenue, and studio comparison.
-        </figcaption>
-      </figure>
+        <article class="contribution-card reveal">
+          <span>03</span>
+          <h3>Readability</h3>
+          <p>
+            Supported larger typography, clearer labels, and increased chart
+            sizing so important comparisons were easier to scan.
+          </p>
+        </article>
+
+        <article class="contribution-card reveal">
+          <span>04</span>
+          <h3>Interface presentation</h3>
+          <p>
+            Contributed to the front-end presentation, annotations, and case
+            study reflection to make the final story easier to follow.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <!-- DESIGN ITERATIONS -->
-    <section class="card">
-      <h2>Design Iterations</h2>
+    <!-- ITERATIONS -->
+    <section id="iterations" class="section study-tonal-section">
+      <div class="container">
+        <div class="study-section-heading reveal">
+          <p class="section-index">04</p>
+          <p class="section-label">Design iterations</p>
+          <h2>Small visual decisions had a large effect on comprehension.</h2>
+        </div>
 
-      <h3>Iteration 1: Colour Consistency</h3>
+        <div class="iteration-list">
+          <article class="iteration-item reveal">
+            <div class="iteration-number">01</div>
+            <div>
+              <h3>A clearer studio colour system</h3>
+              <p>
+                DC and Pixar initially used similar blue tones. We changed DC
+                to green and aligned the tri-variate visualization with the same
+                studio colour system, reducing ambiguity across the website.
+              </p>
+            </div>
+          </article>
 
-      <p>
-        One feedback issue was that the studio colours were not consistent enough.
-        DC and Pixar originally used similar blue tones, which made the charts
-        harder to compare. To improve this, DC was changed to green and the
-        tri-variate graph was updated to match the same studio colour system.
-      </p>
+          <article class="iteration-item reveal">
+            <div class="iteration-number">02</div>
+            <div>
+              <h3>Larger type and charts</h3>
+              <p>
+                The body type was increased from 16px to 20px, and the
+                cumulative-profit graph was enlarged. This made labels and
+                differences between studios easier to compare.
+              </p>
+            </div>
+          </article>
 
-      <h3>Iteration 2: Readability and Chart Size</h3>
+          <article class="iteration-item reveal">
+            <div class="iteration-number">03</div>
+            <div>
+              <h3>More intentional interaction cues</h3>
+              <p>
+                We identified hover effects that suggested clickability where no
+                action existed. A future revision would remove misleading cues,
+                add legend-based filtering, and strengthen the annotation for
+                the 2023–2024 revenue decline.
+              </p>
+            </div>
+          </article>
+        </div>
 
-      <p>
-        Another revision focused on readability. The font size was increased from
-        16px to 20px, and the cumulative profit bar graph was enlarged so users
-        could read and compare the data more easily.
-      </p>
-
-      <h3>Future Iteration</h3>
-
-      <p>
-        For a future version, I would add legend-based filtering so users could
-        choose which studios to compare. I would also add stronger annotations for
-        the 2023–2024 revenue drop and remove hover effects from elements that are
-        not clickable.
-      </p>
+        <figure class="study-figure study-figure--full reveal">
+          <button class="study-image-button" type="button" data-lightbox>
+            <img
+              src="images/challenge.png"
+              alt="Project challenges and limitations related to data, layout, and visualization embedding"
+            />
+            <span>View image ↗</span>
+          </button>
+          <figcaption>
+            Documented challenges included missing entries, limited studio data,
+            layout density, and visualization embedding.
+          </figcaption>
+        </figure>
+      </div>
     </section>
 
-    <!-- CHALLENGES -->
-    <section class="card">
-      <h2>Challenges and Limitations</h2>
+    <!-- OUTCOME -->
+    <section id="outcome" class="section container study-section">
+      <div class="study-section-heading reveal">
+        <p class="section-index">05</p>
+        <p class="section-label">Outcome and reflection</p>
+        <h2>The final experience became easier to read and easier to trust.</h2>
+      </div>
 
-      <p>
-        One major challenge was that the first dataset did not include enough
-        studio-specific information, so we had to find alternative datasets for
-        studio data. We also had missing entries, which affected how complete some
-        visualizations could be.
-      </p>
+      <div class="study-outcome-grid">
+        <div class="study-large-copy reveal">
+          <p>
+            A stronger colour system, larger type, clearer annotations, and more
+            space around the visualizations helped the website communicate its
+            findings without overwhelming the user.
+          </p>
+        </div>
 
-      <p>
-        Another challenge was integrating the visualizations into the website,
-        especially Vega-Lite embeds. We also redesigned the website layout to
-        reduce cognitive load by spreading out the visualizations instead of
-        overwhelming users with too much information at once.
-      </p>
+        <div class="outcome-list reveal">
+          <article>
+            <strong>Clearer comparison</strong>
+            <p>Studio colours remained more predictable across the visual story.</p>
+          </article>
+          <article>
+            <strong>Improved readability</strong>
+            <p>Larger labels and charts reduced unnecessary visual effort.</p>
+          </article>
+          <article>
+            <strong>Better context</strong>
+            <p>The Covid-19 annotation explained a major revenue dip rather than leaving users to guess.</p>
+          </article>
+        </div>
+      </div>
 
-      <figure>
-        <img src="images/challenge.png" alt="Limitations and challenges slide for the movie visualization project" />
-        <figcaption>
-          Project limitations, including missing studio parameters, missing entries,
-          layout redesign, and Vega-Lite embedding challenges.
-        </figcaption>
-      </figure>
+      <blockquote class="study-quote reveal">
+        “Data visualization is not only about making charts. It is about helping
+        people understand the story behind the data.”
+      </blockquote>
     </section>
 
-    <!-- FINAL OUTCOME -->
-    <section class="card">
-      <h2>Final Outcome</h2>
+    <section id="contact" class="contact-section compact-contact">
+      <div class="container contact-layout reveal">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>Let’s connect.</h2>
+        </div>
 
-      <p>
-        The final website became clearer and easier to follow. The improved colour
-        system helped users compare studios more accurately, while the larger text
-        and bar graph improved readability. The Covid-19 annotation was also useful
-        because it explained a major revenue dip instead of leaving users to guess
-        why the trend changed.
-      </p>
+        <div class="contact-copy">
+          <p>
+            I’m always happy to connect about UX, visual storytelling, data
+            visualization, and creative technology.
+          </p>
+          <a class="primary-button" href="mailto:sba195@sfu.ca">Email me</a>
+        </div>
+      </div>
     </section>
-
-    <!-- TAKEAWAYS -->
-    <section class="card">
-      <h2>Takeaways and Future Improvements</h2>
-
-      <p>
-        I learned that data visualization is not only about making charts, but also
-        about helping users understand a story. Clear colours, readable labels,
-        useful annotations, and predictable interactions are important for making a
-        good website.
-      </p>
-
-     
-    </section>
-
   </main>
 
+  <footer>
+    <div class="container footer-content">
+      <p>Case study · The Triad of Modern Cinema</p>
+      <a href="index.html">Return home ↑</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="lightbox-close" type="button" aria-label="Close image preview">×</button>
+    <img class="lightbox-image" src="" alt="" />
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
+
